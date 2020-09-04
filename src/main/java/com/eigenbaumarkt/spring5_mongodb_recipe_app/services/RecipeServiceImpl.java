@@ -41,9 +41,9 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe findById(Long l) {
+    public Recipe findById(String l) {
 
-        Optional<Recipe> recipeOptional = recipeRepository.findById(l);
+        Optional<Recipe> recipeOptional = recipeRepository.findById(Long.valueOf(l));
 
         if (!recipeOptional.isPresent()) {
             throw new NotFoundException("Recipe Not Found. For ID value: " + l.toString() );
@@ -55,7 +55,7 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     @Transactional
     public RecipeCommand findCommandById(Long l) {
-        return recipeToRecipeCommand.convert(findById(l));
+        return recipeToRecipeCommand.convert(findById(String.valueOf(l)));
     }
 
     @Override

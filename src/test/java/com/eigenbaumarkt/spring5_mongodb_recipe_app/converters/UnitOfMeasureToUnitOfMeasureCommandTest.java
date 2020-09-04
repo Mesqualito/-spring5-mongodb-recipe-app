@@ -36,7 +36,7 @@ public class UnitOfMeasureToUnitOfMeasureCommandTest {
     public void convert() throws Exception {
         //given
         UnitOfMeasure uom = new UnitOfMeasure();
-        uom.setId(LONG_VALUE);
+        uom.setId(String.valueOf(LONG_VALUE));
         uom.setDescription(DESCRIPTION);
         //when
         UnitOfMeasureCommand uomc = converter.convert(uom);

@@ -38,7 +38,7 @@ public class ImageServiceImplTest {
                 "Spring Framework Guru".getBytes());
 
         Recipe recipe = new Recipe();
-        recipe.setId(id);
+        recipe.setId(String.valueOf(id));
         Optional<Recipe> recipeOptional = Optional.of(recipe);
 
         when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);

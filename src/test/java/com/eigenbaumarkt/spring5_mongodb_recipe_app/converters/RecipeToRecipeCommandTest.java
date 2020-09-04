@@ -47,7 +47,7 @@ public class RecipeToRecipeCommandTest {
     public void convert() throws Exception {
         //given
         Recipe recipe = new Recipe();
-        recipe.setId(RECIPE_ID);
+        recipe.setId(String.valueOf(RECIPE_ID));
         recipe.setCookTime(COOK_TIME);
         recipe.setPrepTime(PREP_TIME);
         recipe.setDescription(DESCRIPTION);
@@ -58,24 +58,24 @@ public class RecipeToRecipeCommandTest {
         recipe.setUrl(URL);
 
         Notes notes = new Notes();
-        notes.setId(NOTES_ID);
+        notes.setId(String.valueOf(NOTES_ID));
 
         recipe.setNotes(notes);
 
         Category category = new Category();
-        category.setId(CAT_ID_1);
+        category.setId(String.valueOf(CAT_ID_1));
 
         Category category2 = new Category();
-        category2.setId(CAT_ID2);
+        category2.setId(String.valueOf(CAT_ID2));
 
         recipe.getCategories().add(category);
         recipe.getCategories().add(category2);
 
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(INGRED_ID_1);
+        ingredient.setId(String.valueOf(INGRED_ID_1));
 
         Ingredient ingredient2 = new Ingredient();
-        ingredient2.setId(INGRED_ID_2);
+        ingredient2.setId(String.valueOf(INGRED_ID_2));
 
         recipe.getIngredients().add(ingredient);
         recipe.getIngredients().add(ingredient2);

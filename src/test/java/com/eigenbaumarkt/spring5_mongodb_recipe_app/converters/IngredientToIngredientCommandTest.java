@@ -44,7 +44,7 @@ public class IngredientToIngredientCommandTest {
     public void testConvertNullUOM() throws Exception {
         //given
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(ID_VALUE);
+        ingredient.setId(String.valueOf(ID_VALUE));
         ingredient.setRecipe(RECIPE);
         ingredient.setAmount(AMOUNT);
         ingredient.setDescription(DESCRIPTION);
@@ -62,13 +62,13 @@ public class IngredientToIngredientCommandTest {
     public void testConvertWithUom() throws Exception {
         //given
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(ID_VALUE);
+        ingredient.setId(String.valueOf(ID_VALUE));
         ingredient.setRecipe(RECIPE);
         ingredient.setAmount(AMOUNT);
         ingredient.setDescription(DESCRIPTION);
 
         UnitOfMeasure uom = new UnitOfMeasure();
-        uom.setId(UOM_ID);
+        uom.setId(String.valueOf(UOM_ID));
 
         ingredient.setUom(uom);
         //when

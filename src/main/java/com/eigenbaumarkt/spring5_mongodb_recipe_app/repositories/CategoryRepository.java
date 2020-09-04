@@ -5,9 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-/**
- * Created by jt on 6/13/17.
- */
+// CrudRepository can also be used for spring-boot-starter-data-mongodb !
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
     Optional<Category> findByDescription(String description);

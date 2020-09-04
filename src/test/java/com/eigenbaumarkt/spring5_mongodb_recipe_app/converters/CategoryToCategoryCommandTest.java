@@ -35,7 +35,7 @@ public class CategoryToCategoryCommandTest {
     public void convert() throws Exception {
         //given
         Category category = new Category();
-        category.setId(ID_VALUE);
+        category.setId(String.valueOf(ID_VALUE));
         category.setDescription(DESCRIPTION);
 
         //when

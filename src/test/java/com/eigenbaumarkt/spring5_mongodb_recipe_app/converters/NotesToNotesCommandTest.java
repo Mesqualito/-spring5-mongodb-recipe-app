@@ -25,7 +25,7 @@ public class NotesToNotesCommandTest {
     public void convert() throws Exception {
         //given
         Notes notes = new Notes();
-        notes.setId(ID_VALUE);
+        notes.setId(String.valueOf(ID_VALUE));
         notes.setRecipeNotes(RECIPE_NOTES);
 
         //when

@@ -21,7 +21,7 @@ public class CategoryTest {
     public void getId() throws Exception {
         Long idValue = 4L;
 
-        category.setId(idValue);
+        category.setId(String.valueOf(idValue));
 
         assertEquals(idValue, category.getId());
     }
