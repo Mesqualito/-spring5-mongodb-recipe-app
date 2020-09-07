@@ -79,6 +79,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<!-- not working with Java 11, see: https://stackoverflow.com/questions/54391425/circleci-java-11-build-fail -->
+			<!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
@@ -91,7 +94,10 @@
                     <check />
                 </configuration>
             </plugin>
+            -->
+
 			<!--fix for issue with JDK 1.8 181 see: https://stackoverflow.com/questions/53010200/maven-surefire-could-not-find-forkedbooter-class-->
+			<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -99,6 +105,8 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
 			</plugin>
+			-->
+
 		</plugins>
 	</build>
 
