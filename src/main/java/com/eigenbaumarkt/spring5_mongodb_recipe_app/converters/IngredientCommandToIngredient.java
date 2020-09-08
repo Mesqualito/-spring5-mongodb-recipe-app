@@ -32,8 +32,8 @@ public class IngredientCommandToIngredient implements Converter<IngredientComman
         if(source.getRecipeId() != null){
             Recipe recipe = new Recipe();
             recipe.setId(String.valueOf(source.getRecipeId()));
-            ingredient.setRecipe(recipe);
-            recipe.addIngredient(ingredient);
+            // ingredient.setRecipe(recipe);
+            // recipe.addIngredient(ingredient);
         }
 
         ingredient.setAmount(source.getAmount());
