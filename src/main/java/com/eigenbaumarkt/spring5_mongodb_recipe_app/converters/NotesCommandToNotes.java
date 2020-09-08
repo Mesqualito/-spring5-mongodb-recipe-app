@@ -7,9 +7,6 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by jt on 6/21/17.
- */
 @Component
 public class NotesCommandToNotes implements Converter<NotesCommand, Notes> {
 
@@ -22,7 +19,7 @@ public class NotesCommandToNotes implements Converter<NotesCommand, Notes> {
         }
 
         final Notes notes = new Notes();
-        notes.setId(String.valueOf(source.getId()));
+        notes.setId(source.getId());
         notes.setRecipeNotes(source.getRecipeNotes());
         return notes;
     }

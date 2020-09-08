@@ -8,9 +8,6 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by jt on 6/21/17.
- */
 @Component
 public class CategoryCommandToCategory implements Converter<CategoryCommand, Category>{
 
@@ -23,7 +20,7 @@ public class CategoryCommandToCategory implements Converter<CategoryCommand, Cat
         }
 
         final Category category = new Category();
-        category.setId(String.valueOf(source.getId()));
+        category.setId(source.getId());
         category.setDescription(source.getDescription());
         return category;
     }

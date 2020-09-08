@@ -5,6 +5,7 @@ import com.eigenbaumarkt.spring5_mongodb_recipe_app.converters.RecipeCommandToRe
 import com.eigenbaumarkt.spring5_mongodb_recipe_app.converters.RecipeToRecipeCommand;
 import com.eigenbaumarkt.spring5_mongodb_recipe_app.domain.Recipe;
 import com.eigenbaumarkt.spring5_mongodb_recipe_app.repositories.RecipeRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertEquals;
 
-
-/**
- * Created by jt on 6/21/17.
- */
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RecipeServiceIT {

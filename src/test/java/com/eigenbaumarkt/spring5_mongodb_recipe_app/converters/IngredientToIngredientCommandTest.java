@@ -11,16 +11,13 @@ import java.math.BigDecimal;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by jt on 6/21/17.
- */
 public class IngredientToIngredientCommandTest {
 
     public static final Recipe RECIPE = new Recipe();
     public static final BigDecimal AMOUNT = new BigDecimal("1");
     public static final String DESCRIPTION = "Cheeseburger";
-    public static final Long UOM_ID = new Long(2L);
-    public static final Long ID_VALUE = new Long(1L);
+    public static final String UOM_ID = "2";
+    public static final String ID_VALUE = "1";
 
 
     IngredientToIngredientCommand converter;
@@ -44,8 +41,7 @@ public class IngredientToIngredientCommandTest {
     public void testConvertNullUOM() throws Exception {
         //given
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(String.valueOf(ID_VALUE));
-        // ingredient.setRecipe(RECIPE);
+        ingredient.setId(ID_VALUE);
         ingredient.setAmount(AMOUNT);
         ingredient.setDescription(DESCRIPTION);
         ingredient.setUom(null);
@@ -62,13 +58,12 @@ public class IngredientToIngredientCommandTest {
     public void testConvertWithUom() throws Exception {
         //given
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(String.valueOf(ID_VALUE));
-        // ingredient.setRecipe(RECIPE);
+        ingredient.setId(ID_VALUE);
         ingredient.setAmount(AMOUNT);
         ingredient.setDescription(DESCRIPTION);
 
         UnitOfMeasure uom = new UnitOfMeasure();
-        uom.setId(String.valueOf(UOM_ID));
+        uom.setId(UOM_ID);
 
         ingredient.setUom(uom);
         //when

@@ -9,9 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-/**
- * Created by jt on 7/3/17.
- */
 @Slf4j
 @Service
 public class ImageServiceImpl implements ImageService {
@@ -26,7 +23,7 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     @Transactional
-    public void saveImageFile(Long recipeId, MultipartFile file) {
+    public void saveImageFile(String recipeId, MultipartFile file) {
 
         try {
             Recipe recipe = recipeRepository.findById(recipeId).get();
