@@ -89,7 +89,7 @@
                                 <div class="col-md-3 form-group">
                                     <label>Difficulty:</label>
                                     <select class="form-control" th:field="*{difficulty}">
-                                        <option th:each="difficultyValue : ${T(com.eigenbaumarkt.domain.Difficulty).values()}"
+                                        <option th:each="difficultyValue : ${T(com.eigenbaumarkt.spring5_mongodb_recipe_app.domain.Difficulty).values()}"
                                                 th:value="${difficultyValue.name()}"
                                                 th:text="${difficultyValue.name()}"
                                         >val
@@ -155,6 +155,26 @@
                                         ' - ' + ingredient.getDescription())}">1 Teaspoon of Sugar
                                         </li>
                                     </ul>
+                                    <!-- to not have an empty list when we do a POST, we have to copy the ingredients in a hidden list
+                                         for the Command object -->
+                                    <!-- anders als Spring Data JPA, bei welchem das zurückgelieferte Objekt mit dem
+                                         persistenten Objekt ge-"merged" wird und die vorhandene Liste im persistenten Objekt vorhanden
+                                         bleibt, werden bei mongodb-Anbindung bei "leerer" Liste die Verknüpfungen im
+                                         persistenten Objekt gelöscht. Deswegen muss die Liste in das "neue" Update-Objekt
+                                         übergeben werden: -->
+                                    <div th:each="ingredientEach, idx : ${recipe.ingredients}" >
+                                        <!-- Thymeleaf trick: with Thymeleaf-tag on the fields, e.g.: '*{ingredients[__${idx.index}__].id}',
+                                             we get an array with indexes, e.g.: 'ingredients[0].id', and Spring MVC will bind this into an array -->
+                                        <input  type="hidden" th:field="*{ingredients[__${idx.index}__].id}" />
+                                        <input  type="hidden" th:field="*{ingredients[__${idx.index}__].description}" />
+                                        <input  type="hidden" th:field="*{ingredients[__${idx.index}__].amount}" />
+                                        <input  type="hidden" th:field="*{ingredients[__${idx.index}__].uom.id}" />
+                                    </div>
+
+                                    <!-- same for categories - copy for MongoDB embedded references -->
+                                    <div th:each="catEach, idx : ${recipe.categories}" >
+                                        <input  type="hidden" th:field="*{categories[__${idx.index}__].id}" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

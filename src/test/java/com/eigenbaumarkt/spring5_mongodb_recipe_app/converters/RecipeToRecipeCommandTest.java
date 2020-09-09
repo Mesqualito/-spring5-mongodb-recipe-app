@@ -2,6 +2,7 @@ package com.eigenbaumarkt.spring5_mongodb_recipe_app.converters;
 
 import com.eigenbaumarkt.spring5_mongodb_recipe_app.commands.RecipeCommand;
 import com.eigenbaumarkt.spring5_mongodb_recipe_app.domain.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class RecipeToRecipeCommandTest {
 
-    public static final Long RECIPE_ID = 1L;
+    public static final String RECIPE_ID = "1";
     public static final Integer COOK_TIME = Integer.valueOf("5");
     public static final Integer PREP_TIME = Integer.valueOf("7");
     public static final String DESCRIPTION = "My Recipe";
@@ -18,11 +19,11 @@ public class RecipeToRecipeCommandTest {
     public static final Integer SERVINGS = Integer.valueOf("3");
     public static final String SOURCE = "Source";
     public static final String URL = "Some URL";
-    public static final Long CAT_ID_1 = 1L;
-    public static final Long CAT_ID2 = 2L;
-    public static final Long INGRED_ID_1 = 3L;
-    public static final Long INGRED_ID_2 = 4L;
-    public static final Long NOTES_ID = 9L;
+    public static final String CAT_ID_1 = "1";
+    public static final String CAT_ID2 = "2";
+    public static final String INGRED_ID_1 = "3";
+    public static final String INGRED_ID_2 = "4";
+    public static final String NOTES_ID = "9";
     RecipeToRecipeCommand converter;
 
     @Before
@@ -47,7 +48,7 @@ public class RecipeToRecipeCommandTest {
     public void convert() throws Exception {
         //given
         Recipe recipe = new Recipe();
-        recipe.setId(String.valueOf(RECIPE_ID));
+        recipe.setId(RECIPE_ID);
         recipe.setCookTime(COOK_TIME);
         recipe.setPrepTime(PREP_TIME);
         recipe.setDescription(DESCRIPTION);
@@ -58,24 +59,24 @@ public class RecipeToRecipeCommandTest {
         recipe.setUrl(URL);
 
         Notes notes = new Notes();
-        notes.setId(String.valueOf(NOTES_ID));
+        notes.setId(NOTES_ID);
 
         recipe.setNotes(notes);
 
         Category category = new Category();
-        category.setId(String.valueOf(CAT_ID_1));
+        category.setId(CAT_ID_1);
 
         Category category2 = new Category();
-        category2.setId(String.valueOf(CAT_ID2));
+        category2.setId(CAT_ID2);
 
         recipe.getCategories().add(category);
         recipe.getCategories().add(category2);
 
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(String.valueOf(INGRED_ID_1));
+        ingredient.setId(INGRED_ID_1);
 
         Ingredient ingredient2 = new Ingredient();
-        ingredient2.setId(String.valueOf(INGRED_ID_2));
+        ingredient2.setId(INGRED_ID_2);
 
         recipe.getIngredients().add(ingredient);
         recipe.getIngredients().add(ingredient2);
@@ -89,7 +90,7 @@ public class RecipeToRecipeCommandTest {
         assertEquals(COOK_TIME, command.getCookTime());
         assertEquals(PREP_TIME, command.getPrepTime());
         assertEquals(DESCRIPTION, command.getDescription());
-        assertEquals(DIFFICULTY, command.getDifficulty());
+        Assert.assertEquals(DIFFICULTY, command.getDifficulty());
         assertEquals(DIRECTIONS, command.getDirections());
         assertEquals(SERVINGS, command.getServings());
         assertEquals(SOURCE, command.getSource());

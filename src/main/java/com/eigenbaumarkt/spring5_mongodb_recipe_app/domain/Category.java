@@ -17,6 +17,8 @@ public class Category {
     private String id;
     private String description;
 
+    // "categories" wird innerhalb der mongoDB in der Collection "recipe"
+    // ein Array mit Referenzen auf Datensätze in der Collection "category"
     @DBRef
     private Set<Recipe> recipes;
 }

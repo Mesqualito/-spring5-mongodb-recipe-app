@@ -5,18 +5,15 @@ import com.eigenbaumarkt.spring5_mongodb_recipe_app.domain.Recipe;
 
 import java.util.Set;
 
-/**
- * Created by jt on 6/13/17.
- */
 public interface RecipeService {
 
     Set<Recipe> getRecipes();
 
-    Recipe findById(String l);
+    Recipe findById(String id);
 
-    RecipeCommand findCommandById(Long l);
+    RecipeCommand findCommandById(String id);
 
     RecipeCommand saveRecipeCommand(RecipeCommand command);
 
-    void deleteById(Long idToDelete);
+    void deleteById(String idToDelete);
 }

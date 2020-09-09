@@ -7,12 +7,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by jt on 6/21/17.
- */
 public class NotesToNotesCommandTest {
 
-    public static final Long ID_VALUE = new Long(1L);
+    public static final String ID_VALUE = "1";
     public static final String RECIPE_NOTES = "Notes";
     NotesToNotesCommand converter;
 
@@ -25,7 +22,7 @@ public class NotesToNotesCommandTest {
     public void convert() throws Exception {
         //given
         Notes notes = new Notes();
-        notes.setId(String.valueOf(ID_VALUE));
+        notes.setId(ID_VALUE);
         notes.setRecipeNotes(RECIPE_NOTES);
 
         //when
